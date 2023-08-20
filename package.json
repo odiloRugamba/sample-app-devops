@@ -1,0 +1,12 @@
+{
+  "name": "sample-app",
+  "version": "1.0.0",
+  "description": "a sample app for testing devops processes and infra purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Tests run\"",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
