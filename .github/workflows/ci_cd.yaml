@@ -28,7 +28,9 @@ jobs:
         run: docker build -t my-node-app .
 
       - name: Scan Docker image
-        run: docker scan my-node-app
+        uses: crazy-max/ghaction-container-scan@v2
+        with:
+          image: my-node-app
 
       - name: Publish Docker image
         uses: docker/build-push-action@v2
