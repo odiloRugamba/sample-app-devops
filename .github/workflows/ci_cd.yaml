@@ -25,16 +25,21 @@ jobs:
         run: npm run lint
 
       - name: Build Docker image
-        run: docker build -t my-node-app .
+        run: docker build -t sample-app-devops .
 
       - name: Scan Docker image
         uses: crazy-max/ghaction-container-scan@v2
         with:
-          image: my-node-app
+          image: sample-app-devops
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Publish Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: my-node-app:latest
+          tags: sample-app-devops:latest
